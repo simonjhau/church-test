@@ -14,7 +14,6 @@ app.get("/api", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  console.log(req);
   console.log("get html");
   res.sendFile(path.join(appDir, "index.html"));
 });
