@@ -1,0 +1,31 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test-unit
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+      - name: build app
+        run: npm run build
+        working-directory: ./app
+      - name: build api
+        run: npm run build
+        working-directory: ./api
+      - name: deploy app
+        uses: onekiloparsec/heroku-node-deploy-subfolder@v1.1.0
+        with:
+          working-directory: ./api
+          api_key: ${{secrets.HEROKU_API_KEY}}
+          email: ${{secrets.HEROKU_EMAIL}}
+          app_name: church-test
+          heroku_branch: "main"
+          subfolder: "dist"

@@ -1,19 +1,22 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
-import axios from "axios";
 
 function App() {
-  const [data, setData] = useState([]);
-  const getData = async () => {
-    const { data } = await axios.get(`/`);
-    console.log({ data });
-    setData(data);
-  };
+  const [post, setPost] = useState(null);
+
   useEffect(() => {
-    getData();
+    axios.get("/api").then((response: any) => {
+      setPost(response.data);
+    });
   }, []);
-  return <div>{JSON.stringify(data)}</div>;
+
+  return (
+    <div>
+      <h1>{post}</h1>
+    </div>
+  );
 }
 
 export default App;
