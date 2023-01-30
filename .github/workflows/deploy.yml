@@ -12,13 +12,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-      - name: build app
-        run: npm run build
-        working-directory: ./app
-      - name: build api
-        run: npm run build
-        working-directory: ./api
-      - name: deploy app
+      - name: install dependencies
+        run: npm run installAll
+      - name: build
+        run: npm run buildAll
+      - name: deploy
         uses: onekiloparsec/heroku-node-deploy-subfolder@v1.1.0
         with:
           working-directory: ./api
