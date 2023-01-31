@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "installAll": "(npm install); (cd api && npm install); (cd app && npm install);",
+    "postinstall": "(cd api && npm install); (cd app && npm install);",
     "build": "(cd api && npm run build); (cd app && npm run build);",
     "start": "node ./api/dist/server.js",
     "dev": "concurrently \"npm run dev --prefix api\" \"npm run dev --prefix app\"",
