@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "tsnd src/server.ts --respawn --transpile-only --exit-child",
-    "build": "tsc",
+    "build": "npm run tsc",
     "postinstall": "npm run build",
     "tsc": "./node_modules/typescript/bin/tsc"
   },
