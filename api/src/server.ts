@@ -8,6 +8,10 @@ const port = 9000;
 const appDir = path.join(__dirname, "../..", "app", "dist");
 app.use(express.static(appDir));
 
+app.get("/api/crash", (req, res) => {
+  throw new Error("crash");
+});
+
 app.get("/api", (req, res) => {
   console.log("api");
   res.send("Hello World from api!!!");
