@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "tsnd src/server.ts --respawn --transpile-only --exit-child",
-    "build": "tsc",
-    "postinstall": "npm run build"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
