@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "npm run tsc && vite build",
     "postinstall": "npm run build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tsc": "./node_modules/typescript/bin/tsc",
   },
   "dependencies": {
     "axios": "^1.2.6",
