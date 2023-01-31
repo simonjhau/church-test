@@ -5,7 +5,7 @@ const app = express();
 
 const port = 9000;
 
-const appDir = path.join("..", "app", "dist");
+const appDir = path.join(__dirname, "../..", "app", "dist");
 app.use(express.static(appDir));
 
 app.get("/api", (req, res) => {
