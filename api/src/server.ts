@@ -3,7 +3,7 @@ import path from "path";
 
 const app = express();
 
-const port = 9000;
+const port = process.env.PORT ?? 9000;
 
 const appDir = path.join(__dirname, "../..", "app", "dist");
 app.use(express.static(appDir));
